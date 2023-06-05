@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tracker
+  template:
+    metadata:
+      labels:
+        app: tracker
+    spec:
+      containers:
+        - name: tracker
+          image:  icr.io/naan-mudhalvan/tracker
+          ports:
+            - containerPort: 8080

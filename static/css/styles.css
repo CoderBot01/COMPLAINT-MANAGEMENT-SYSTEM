@@ -1,0 +1,192 @@
+/* Global styles */
+body {
+    background-image: url("Template/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+ 
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  nav li a:hover {
+    color: #ccc;
+  }
+  
+  /* Main content styles */
+  main {
+    padding: 20px;
+  }
+  
+  main h2 {
+    margin-top: 0;
+  }
+  
+  main p {
+    line-height: 1.5;
+  }
+  
+  a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    color: #666;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  /* Login button styles */
+nav .login {
+    float: right;
+  }
+  
+  nav .login a {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  
+  nav .login a:hover {
+    background-color: #666;
+  }
+  /* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  color: #ccc;
+}
+
+/* Main content styles */
+main {
+  padding: 20px;
+}
+
+main h2 {
+  margin-top: 0;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #666;
+}
+
+/* Footer styles */
+footer {
+  background-color: #ccc;
+  padding: 10px;
+  text-align: center;
+}
+.register-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-buttons a {
+    display: block;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+  }

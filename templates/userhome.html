@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Raise Complaint - Online Complaint Management System</title>
+  <link rel="stylesheet" href="../static/css/user.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Online Complaint Management System</h1>
+    <nav>
+      <ul>
+        <li>welcome, {{username}}!!</li>
+        <li><a href="/">Home</a></li>
+        <li><a href="#raise" id="raise">Raise-complaint</a></li>
+        <li><a href="#view" id="view">View-complaint</a></li>
+        <li><a href="/logout">Logout</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="raise-complaint">
+      <h2>Raise Complaint</h2>
+      <form action="/submit-complaint" method="POST" enctype="multipart/form-data">
+        <label for="complaint-type">Type of Issue:</label><br>
+        <select id="complaint-type" name="complaint_type" required>
+          <option value="">Select an option...</option>
+          <option value="road">Road</option>
+          <option value="garbage">Garbage</option>
+          <option value="water">Water</option>
+          <option value="electricity">Electricity</option>
+          <option value="parking">Parking</option>
+        </select><br><br>
+        <label for="complaint-image">Upload Photo:</label><br>
+        <input type="file" id="complaint-image" name="complaint_image" required><br><br>
+        <label for="complaint-description">Problem Description:</label><br>
+        <textarea id="complaint-description" name="complaint_description" rows="4" cols="50"
+          required></textarea><br><br>
+        <label for="location-details">Location Details:</label><br>
+        <textarea id="location-details" name="location_details" rows="4" cols="50" required></textarea><br><br>
+        <label for="current-location">Current Location:</label><br>
+        <button type="button" id="get-location-button">Get Current Location</button><br><br>
+        <div id="map"></div>
+        <label for="latitude">Latitude:</label><br>
+        <input type="text" id="latitude" name="latitude" required><br><br>
+        <label for="longitude">Longitude:</label><br>
+        <input type="text" id="longitude" name="longitude" required><br><br>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+    <section id="view-complaints">
+      
+      <h2>View Complaints</h2>
+      <div class="complaints-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Email</th>
+            <th>Uploaded Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Agent</th>
+            <th>Progress</th>
+            <th>Work Status</th>
+            <th>Image After Completion</th>
+            <th>Delete Issue</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for complaint in complaints %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ complaint.EMAIL }}</td>
+            <td><img src="{{ complaint.IMAGE_URL }}" alt="Uploaded Image"></td>
+            <td>{{ complaint.TITLE }}</td>
+            <td>{{ complaint.DESCRIPTION }}</td>
+            <td>
+              {% if complaint.ASSIGNEE != None %}
+              Assigned To {{ complaint.ASSIGNEE }}
+              {% else %}
+              Not Assigned
+              {% endif %}
+            </td>
+            <td>{{ complaint.PROGRESS }}</td>
+            <td>{{ complaint.STATUS }}</td>
+            {% if complaint.IMAGE_AFTER %}
+            <td><img src="{{ complaint.IMAGE_AFTER }}" alt="Image After Completion"></td>
+            {% else %}
+            <td>No Image Uploaded</td>
+            {% endif %}
+            <form action="/delete-issue" method="POST">
+            <td><button type="submit" formaction="/user/delete-issue?id={{ complaint.TICKET_ID }}">Delete</button></td>
+            </form>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    </section>
+  </main>
+  <script type="text/javascript">
+
+    window.addEventListener('load', function () {
+      var message = "{{ message }}";
+      if (message != "") {
+        alert(message);
+      }
+    });
+  </script>
+  <script src="../static/js/user.js"></script>
+</body>
+
+</html>

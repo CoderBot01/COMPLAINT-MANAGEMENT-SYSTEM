@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Agent Login and Registration - Complaint Management System</title>
+  <link rel="stylesheet" href="../static/css/login.css">
+</head>
+
+<body>
+
+  <header>
+    <center>
+      <h1>Complaint Management System</h1>
+    </center>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="login">
+      <form action="/agent/login" method="POST">
+        <center>
+          <h2>Agent Login</h2><br>
+        </center>
+        {% if error %}
+        <center>
+          <div class="error" id="login-error">{{ error }}</div>
+        </center>
+        {% endif %}
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="register-link">Register here</a>.</p>
+    </section>
+
+    <section id="register" style="display: none;">
+      <form action="/agent/new_user" method="POST">
+        <center>
+          <h2>Agent Registration</h2>
+        </center>
+        <label for="name">Name:</label>
+        <input type="text" id="rname" name="rname" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="remail" name="remail" required>
+
+
+        <label for="password">Password:</label>
+        <input type="password" id="rpassword" name="rpassword" required>
+
+
+        <label for="assigned_partner">Role:</label>
+        <select name="assigned_partner">
+          <option value="">Select Partner</option>
+          <option value="Plumber">Plumber</option>
+          <option value="Electrician">Electrician</option>
+          <option value="Mechanic">Mechanic</option>
+        </select required>
+
+        <button type="submit">Register</button>
+      </form>
+      <p>Already have an account? <a href="#" id="login-link">Login here</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Complaint Management System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const loginSection = document.getElementById('login');
+    const registerSection = document.getElementById('register');
+    const loginLink = document.getElementById('login-link');
+    const registerLink = document.getElementById('register-link');
+
+    function showLoginSection() {
+      loginSection.style.display = 'block';
+      registerSection.style.display = 'none';
+    }
+
+    function showRegisterSection() {
+      loginSection.style.display = 'none';
+      registerSection.style.display = 'block';
+    }
+
+    loginLink.addEventListener('click', showLoginSection);
+    registerLink.addEventListener('click', showRegisterSection);
+  </script>
+
+</body>
+
+</html>

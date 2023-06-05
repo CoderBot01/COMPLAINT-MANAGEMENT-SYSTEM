@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Online Complaint Management System</title>
+  <link rel="stylesheet" href="../static/css/admin.css">
+</head>
+
+<body>
+  <header>
+    <h1>Online Complaint Management System</h1>
+    <nav>
+      <ul>
+        <li><span>Welcome, {{ username }}!</span></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="dashboard">
+      <h2>Complaints List</h2>
+      <div class="complaints-list">
+        <form method="POST">
+          <table>
+            <thead>
+              <tr>
+                <th>Sr. No.</th>
+                <th>Email</th>
+                <th>Uploaded Image</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Assigned Partner</th>
+                <th>Progress</th>
+                <th>Work Status</th>
+                <th>Image After Completion</th>
+                <th>Delete Issue</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for complaint in complaints %}
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ complaint.EMAIL }}</td>
+                <td><img src="{{ complaint.IMAGE_URL }}" alt="Uploaded Image"></td>
+                <td>{{ complaint.TITLE }}</td>
+                <td>{{ complaint.DESCRIPTION }}</td>
+                <td>
+                  {% if complaint.ASSIGNEE != None %}
+                  Assigned To {{ complaint.ASSIGNEE }}
+                  {% else %}
+                  <select name="assigned-partner">
+                    {% for partner in partners %}
+                    <option value="{{ partner.EMAIL }}">{{ partner.EMAIL }}</option>
+                    {% endfor %}
+                  </select>
+                  <button type="submit" formaction="/assign-partner?id={{ complaint.TICKET_ID }}">Assign</button>
+                  {% endif %}
+                </td>
+                <td>{{ complaint.PROGRESS }}</td>
+                <td>{{ complaint.STATUS }}</td>
+                {% if complaint.IMAGE_AFTER %}
+                <td><img src="{{ complaint.IMAGE_AFTER }}" alt="Image After Completion"></td>
+                {% else %}
+                <td>No Image Uploaded</td>
+                {% endif %}
+                <td><button type="submit" formaction="/admin/delete-issue?id={{ complaint.TICKET_ID }}">Delete</button></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+<script>
+  window.onload = function () {
+    var message = "{{ message }}";
+    if (message) {
+      alert(message);
+    }
+  }
+</script>
+
+</html>

@@ -1,0 +1,86 @@
+/* Define color variables using CSS custom properties */
+:root {
+  --primary-color: #3c4043; /* dark gray */
+  --secondary-color: #0072c6; /* blue */
+  --background-color: #f0f0f0; /* light gray */
+  --accent-color: #f7b731; /* yellow */
+  --text-color: #333; /* black */
+}
+
+/* Apply colors to page elements */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.complaints-list table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.complaints-list th, .complaints-list td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--primary-color);
+}
+
+.complaints-list th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.complaints-list td img {
+  max-width: 200px;
+  height: 200px;
+}
+
+.complaints-list td button {
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.complaints-list td button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Add more CSS rules as needed */

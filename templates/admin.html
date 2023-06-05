@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login or Register - Complaint Management System</title>
+  <link rel="stylesheet" href="../static/css/login.css">
+</head>
+
+<body>
+
+  <header>
+    <center>
+      <h1>Complaint Management System</h1>
+    </center>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/admin/login">Admin Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="login">
+      <form action="/admin/login" method="POST">
+        <center>
+          <h2>Login</h2><br>
+        </center>
+        {% if error %}
+        <center><div class="error" id="login-error">{{ error }}</div></center>
+        {% endif %}
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="register-link">Register here</a>.</p>
+    </section>
+
+    <section id="register" style="display: none;">
+      <form action="/admin/new_user" method="POST">
+        <center>
+          <h2>Register</h2>
+        </center>
+        <label for="rname">Name:</label>
+        <input type="text" id="rname" name="rname" required>
+
+        <label for="remail">Email:</label>
+        <input type="email" id="remail" name="remail" required>
+
+        <label for="rpassword">Password:</label>
+        <input type="password" id="rpassword" name="rpassword" required>
+
+        <label for="admincode">Admin-code:</label>
+        <input type="password" id="admincode" name="admincode" required>
+        <button type="submit">Register</button>
+      </form>
+      <p>Already have an account? <a href="#" id="login-link">Login here</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Complaint Management System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const loginSection = document.getElementById('login');
+    const registerSection = document.getElementById('register');
+    const loginLink = document.getElementById('login-link');
+    const registerLink = document.getElementById('register-link');
+
+    function showLoginSection() {
+      loginSection.style.display = 'block';
+      registerSection.style.display = 'none';
+    }
+
+    function showRegisterSection() {
+      loginSection.style.display = 'none';
+      registerSection.style.display = 'block';
+    }
+
+    function clearDivOnRefresh() {
+      const divElement = document.getElementById('register-error');
+      if (divElement) {
+        window.addEventListener('beforeunload', function () {
+          divElement.innerHTML = '';
+        });
+      }
+    }
+    loginLink.addEventListener('click', showLoginSection);
+    registerLink.addEventListener('click', showRegisterSection);
+
+  </script>
+
+</body>
+
+</html>

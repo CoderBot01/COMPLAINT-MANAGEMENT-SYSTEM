@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Online Complaint Management System</title>
+  <link rel="stylesheet" href="../static/css/admin.css">
+</head>
+<body>
+  <header>
+    <h1>Online Complaint Management System</h1>
+    <nav>
+      <ul>
+        <li><span>Welcome, Agent {{ agent_name }}!</span></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="dashboard">
+      <h2>Complaints List</h2>
+      <div class="complaints-list">
+        <table>
+          <thead>
+            <tr>
+              <th>Sr. No.</th>
+              <th>Uploaded Image</th>
+              <th>Location Details</th>
+              <th>File ID</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Assigned</th>
+              <th>Update</th>
+              <th>Updated Status</th>
+              <th>Image After Completion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for complaint in complaints %}
+            
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td><img src="{{ complaint.IMAGE_URL }}" alt="Uploaded Image"></td>
+                <td>{{ complaint.LOCATION_DETAILS }}<br>
+                                    <span>logitude:{{ complaint.LONGITUTE}}</span> <br>
+                                    <span>logitude:{{ complaint.LATITUTE}}</span>
+                  
+                </td>
+                <td>{{ complaint.ID }}</td>
+                <td>{{ complaint.TITLE }}</td>
+                <td>{{ complaint.DESCRIPTION }}</td>
+                <td>{{complaint.ASSIGNEE}}</td>
+                <td><form action="/update" method="POST" enctype="multipart/form-data">
+                    <select name="progress">
+                      <option value="inprogress" {% if complaint.PROGRESS == 'inprogress' %}selected{% endif %}>In Progress</option>
+                      <option value="completed" {% if complaint.PROGRESS == 'completed' %}selected{% endif %}>Completed</option>
+                    </select>
+                    <input type="file" name="image_after">
+                    <input type="hidden" name="complaint_id" value="{{ complaint.TICKET_ID }}"><br><br>
+                    <button type="submit">Update</button>
+                  </form></td>
+                <td>{{ complaint.STATUS }}</td>
+                {% if complaint.IMAGE_AFTER == None %}
+                <td>No Image Uploaded</td>
+                {% else %}
+                <td><img src="{{ complaint.IMAGE_AFTER }}" alt="Image After Completion"></td>
+                {% endif %}
+              </tr>
+              
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+<script>
+  
+</script>
+</html>

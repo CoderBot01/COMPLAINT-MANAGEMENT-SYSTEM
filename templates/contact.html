@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Support | Complaint Management System</title>
+    <link rel="stylesheet" href="../static/css/contact.css">
+  </head>
+  <body>
+    <header>
+      <h1>Complaint Management System</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Customer Support</h2>
+      <p>We are here to help you with your complaints and resolve any issues you may be experiencing.</p>
+     
+      <h3>Submit a Support Request</h3>
+      <form method="POST" action="/contact">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <h3>Contact Information</h3>
+      <ul>
+        <li><strong>Email:</strong> support@complaintmanagementsystem.com</li>
+        <li><strong>Phone:</strong> 1-800-555-1234</li>
+        <li><strong>Hours:</strong> Monday-Friday, 9:00am-5:00pm EST</li>
+      </ul>
+      <h3>Frequently Asked Questions</h3>
+      <dl>
+        <dt>How do I submit a complaint?</dt>
+        <dd>You can submit a complaint by clicking on the "Submit a Complaint" link on the homepage and filling out the form.</dd>
+        <dt>How do I track my complaint?</dt>
+        <dd>You can track your complaint by clicking on the "Track Your Complaint" link on the homepage and entering your complaint ID.</dd>
+        <dt>How long does it take to resolve a complaint?</dt>
+        <dd>The time it takes to resolve a complaint depends on the nature of the complaint and the complexity of the issue. We strive to resolve complaints as quickly and efficiently as possible.</dd>
+      </dl>
+    </main>
+    <footer>
+      <p>&copy; 2023 Complaint Management System. All rights reserved.</p>
+    </footer>
+  </body>
+<script>
+  window.onload = function() {
+    var message= "{{ message }}";
+    if (message) {
+      alert(message);
+    }
+  }
+</script>
+</html>

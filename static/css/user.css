@@ -1,0 +1,176 @@
+/* Define color variables using CSS custom properties */
+:root {
+  --primary-color: #3c4043;
+  /* dark gray */
+  --secondary-color: #0072c6;
+  /* blue */
+  --background-color: #f0f0f0;
+  /* light gray */
+  --accent-color: #f7b731;
+  /* yellow */
+  --text-color: #333;
+  /* black */
+}
+
+/* Apply colors to page elements */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  text-align: left;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+#map {
+  height: 300px;
+}
+
+form {
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+
+complaints-list table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.complaints-list th, .complaints-list td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--primary-color);
+}
+
+.complaints-list th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.complaints-list td img {
+  max-width: 200px;
+  height: 200px;
+}
+
+.complaints-list td button {
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.complaints-list td button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Add more CSS rules as needed */
+
+
+#view-complaints {
+  display: none;
+}
+
+#raise-complaint {
+  display: block;
+}

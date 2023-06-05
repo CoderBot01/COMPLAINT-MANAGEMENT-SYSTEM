@@ -1,0 +1,4 @@
+ibm_db
+flask
+ibm-cos-sdk         
+python-dotenv

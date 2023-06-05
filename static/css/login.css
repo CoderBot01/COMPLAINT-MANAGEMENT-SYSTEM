@@ -1,0 +1,158 @@
+:root {
+  --primary-color: #3c4043;
+  /* dark gray */
+  --secondary-color: #0072c6;
+  /* blue */
+  --background-color: #f0f0f0;
+  /* light gray */
+  --accent-color: #f7b731;
+  /* yellow */
+  --text-color: #333;
+  /* black */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+nav {
+  text-align: right;
+}
+
+nav ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  background-color: white;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 1em;
+  font-size: 1em;
+}
+
+form button[type="submit"] {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #005cbf;
+}
+
+form p {
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+form a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+form a:hover {
+  text-decoration: underline;
+}
+
+#register {
+  display: none;
+}
+
+#login-link,
+#register-link {
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+#login-link:hover,
+#register-link:hover {
+  text-decoration: underline;
+}
+
+#accent-text {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  nav li {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+}
+
